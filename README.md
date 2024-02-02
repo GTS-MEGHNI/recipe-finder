@@ -1,29 +1,11 @@
-# recipe-finder
+## Overview
 
-This template should help get you started developing with Vue 3 in Vite.
+This Recipe Finder App is a Vue.js project built to showcase my skills in frontend development. It allows users to search for recipes using keywords and browse through a wide range of meals. The app utilizes Vuex for state management, Axios for HTTP requests, and follows Fluent Design principles for a modern and intuitive user interface.
 
-## Recommended IDE Setup
+### Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+- **Search Functionality**: Users can search for recipes using keywords.
+- **Responsive Design**: The app is designed to work seamlessly across various screen sizes.
+- **Fluent Design**: The UI follows Fluent Design principles for a visually appealing experience.
+- **State Management**: Utilizes Vuex for efficient state management.
+- **API Integration**: Fetches recipe data from [TheMealDB API](https://www.themealdb.com/api.php).
