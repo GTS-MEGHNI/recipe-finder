@@ -14,7 +14,7 @@ let props = defineProps({
       <span class="px-2 py-1 bg-blue-600 rounded-full text-xs uppercase font-semibold tracking-wide"> {{ category }}</span>
     </div>
     <div class="relative">
-      <img :src="imageUrl" alt="" class="w-full h-auto max-w-full rounded" style="max-width: 250px">
+      <img :src="imageUrl" alt="" class="w-full h-auto max-w-full rounded">
       <div class="absolute inset-0 bg-gradient-to-r from-transparent to-black"></div>
     </div>
   </div>
