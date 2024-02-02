@@ -1,14 +1,17 @@
-import { createStore } from 'vuex'
+import {createStore} from 'vuex'
 
 export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
+    state: {
+        meals: []
+    },
+    getters: {
+        getMeals: (state) => state.meals
+    },
+    mutations: {
+        setMeals: (state, payload) => state.meals.push(payload)
+    },
+    actions: {
+        addMeal: (context, payload) => context.commit('setMeals', payload)
+    },
+    modules: {}
 })
