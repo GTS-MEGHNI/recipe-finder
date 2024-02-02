@@ -1,36 +1,43 @@
+<!--suppress PointlessBooleanExpressionJS -->
 <script setup>
 
-import {onBeforeMount} from "vue";
+import {onBeforeMount, onMounted, ref} from "vue";
 import {MealService} from "@/services/MealService.js";
 import {useStore} from "vuex";
-import MealComponent from "@/components/MealComponent.vue";
 import SearchComponent from "@/components/SearchComponent.vue";
+import MealsListComponent from "@/components/MealsListComponent.vue";
+import NotFoundComponent from "@/components/NotFoundComponent.vue";
+import SpinnerComponent from "@/components/SpinnerComponent.vue";
+
+let loading = ref(false)
 
 onBeforeMount(() =>
-    MealService.fetchMeals()
+    MealService.fetchMeals(loading)
 )
+
+onMounted(() => {
+  loading.value = true
+})
+
+const setLoading = (value) => {
+  loading.value = value
+}
 
 const store = useStore()
 const meals = store.getters.getMeals
-
 
 </script>
 
 <template>
   <div class="container mx-auto flex flex-col">
     <div class="mt-20">
-      <SearchComponent/>
+      <SearchComponent :setLoading="setLoading"/>
     </div>
-    <div class="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-      <div v-for="(meal, index) in meals" :key="index">
-        <MealComponent :id="meal.id"
-                       :name="meal.name"
-                       :category="meal.category"
-                       :imageUrl="meal.imageUrl"
-        />
-      </div>
+    <div>
+      <MealsListComponent v-if="meals.length > 0" :meals="meals"/>
+      <SpinnerComponent v-if="loading"/>
+      <NotFoundComponent v-if="meals.length === 0 && !loading"/>
     </div>
-
   </div>
 </template>
 
