@@ -27,7 +27,8 @@ export class MealService {
                     'name': meal.strMeal,
                     'category': meal.strCategory,
                     'imageUrl': meal.strMealThumb,
-                    'ingredients': this.mapIngredients(meal)
+                    'ingredients': this.mapIngredients(meal),
+                    'instructions': meal.strInstructions.split('.')
                 })
             })
     }
@@ -38,12 +39,12 @@ export class MealService {
 
     static mapIngredients(meal) {
         let ingredients = []
-        console.log(meal)
         for(let attribute in meal) {
-            if(attribute.includes('Ingredient') && meal[attribute].length > 0)
+            if(attribute.includes('Ingredient') && meal[attribute] !== '')
                 ingredients.push(meal[attribute])
         }
         return ingredients
     }
+
 
 }

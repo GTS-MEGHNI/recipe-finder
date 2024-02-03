@@ -3,6 +3,7 @@ import MealImageComponent from "@/components/MealImageComponent.vue";
 import {useRouter} from "vue-router";
 import {onMounted} from "vue";
 import MealCategoryBadgeComponent from "@/components/MealCategoryBadgeComponent.vue";
+import ImageComponent from "@/components/ImageComponent.vue";
 
 let props = defineProps({
   id: null,
@@ -31,7 +32,7 @@ function showDetails() {
         <MealCategoryBadgeComponent :content="category"/>
       </div>
     </div>
-    <MealImageComponent :imageUrl="imageUrl"/>
+      <ImageComponent :shadow=true :imageUrl="imageUrl"/>
   </div>
 </template>
 
