@@ -1,5 +1,5 @@
 <script setup>
-import MealComponent from "@/components/MealComponent.vue";
+import MealComponent from "@/components/MealCardComponent.vue";
 
 const props = defineProps({
   meals:null

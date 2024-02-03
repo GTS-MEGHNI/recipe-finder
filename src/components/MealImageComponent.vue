@@ -5,12 +5,11 @@ import {ref} from "vue";
 let props = defineProps({
   imageUrl: null
 })
-const imageWidth = 246
-const imageHeight = 246
+
 const loading = ref(true)
 
 function disableLoading() {
-  setTimeout(() => loading.value = false, 2000)
+  loading.value = false
 }
 </script>
 
@@ -18,7 +17,7 @@ function disableLoading() {
 <template>
   <div class="relative w-[246px] h-[246px]">
     <div v-if="loading" class="h-full w-full flex justify-center items-center">
-      <SpinnerComponent />
+      <SpinnerComponent/>
     </div>
     <div v-show="!loading">
       <img :src="imageUrl" alt="" class="w-full h-auto max-w-full rounded" @load="disableLoading">
@@ -40,8 +39,5 @@ function disableLoading() {
   bottom: 0;
 }
 
-.bg-gradient-to-r {
-  background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
-}
 
 </style>

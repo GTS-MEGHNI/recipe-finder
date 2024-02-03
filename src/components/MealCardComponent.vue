@@ -1,6 +1,8 @@
 <script setup>
-import {computed} from "vue";
 import MealImageComponent from "@/components/MealImageComponent.vue";
+import {useRouter} from "vue-router";
+import {onMounted} from "vue";
+import MealCategoryBadgeComponent from "@/components/MealCategoryBadgeComponent.vue";
 
 let props = defineProps({
   id: null,
@@ -9,13 +11,16 @@ let props = defineProps({
   imageUrl: null,
 })
 
+let router = null
+
+onMounted(() => {
+  router = useRouter()
+})
+
 function showDetails() {
-  console.log(props.id)
+  router.push('/meals/'+props.id)
 }
 
-const truncatedName = computed(() => {
-
-})
 </script>
 
 <template>
@@ -23,7 +28,7 @@ const truncatedName = computed(() => {
     <div class="w-fit h-fit" @click.stop="">
       <h1 class="truncate text-lg font-medium mb-2 cursor-auto w-fit">Name {{ name }}</h1>
       <div class="flex items-center mb-4 cursor-auto w-fit">
-        <span class="px-2 py-1 bg-blue-600 rounded-full text-xs uppercase font-semibold tracking-wide"> {{ category }}</span>
+        <MealCategoryBadgeComponent :content="category"/>
       </div>
     </div>
     <MealImageComponent :imageUrl="imageUrl"/>

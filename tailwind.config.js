@@ -8,7 +8,7 @@ export default {
     extend: {
       fontFamily: {
         'sans': ['Segoe UI', 'Arial', 'sans-serif'],
-      },
+      }
     },
   },
   plugins: [],

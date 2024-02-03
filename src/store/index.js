@@ -1,11 +1,16 @@
 import {createStore} from 'vuex'
 
-export default createStore({
+const persistedState = JSON.parse(localStorage.getItem('vuex-state')) || {
+    meals: []
+};
+
+const store = createStore({
     state: {
-        meals: [],
+        ...persistedState
     },
     getters: {
-        getMeals: (state) => state.meals
+        getMeals: (state) => state.meals,
+        getMealById: (state) => (id) => state.meals.find((meal) => meal.id === id)
     },
     mutations: {
         setMeals: (state, payload) => state.meals.push(payload),
@@ -17,3 +22,9 @@ export default createStore({
     },
     modules: {}
 })
+
+store.subscribe((mutation, state) => {
+    localStorage.setItem('vuex-state', JSON.stringify(state));
+});
+
+export default store
