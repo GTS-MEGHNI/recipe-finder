@@ -10,6 +10,7 @@ import {useStore} from "vuex";
 
 
 let loading = ref(false)
+let test = ref(true)
 
 onBeforeMount(() =>
     MealService.fetchMeals(loading)
@@ -17,6 +18,9 @@ onBeforeMount(() =>
 
 onMounted(() => {
   loading.value = true
+  setTimeout(() => {
+    test.value = false
+  }, 5000)
 })
 
 const setLoading = (value) => {
@@ -29,14 +33,22 @@ const meals = store.getters.getMeals
 </script>
 
 <template>
-  <div class="container mx-auto flex flex-col">
-    <div class="mt-20">
-      <SearchComponent :setLoading="setLoading"/>
-    </div>
-    <div>
-      <MealsListComponent v-if="meals.length > 0" :meals="meals"/>
-      <MealsLoaderComponent v-if="loading"/>
-      <NotFoundComponent v-if="meals.length === 0 && !loading"/>
+  <div>
+    <div class="container mx-auto flex flex-col">
+      <SearchComponent :setLoading="setLoading" class="mt-20"/>
+      <div>
+        <Transition
+            mode="out-in"
+            appear
+            enter-active-class="custom-enter-active"
+            leave-active-class="custom-leave-active"
+            enter-from-class="custom-enter-from"
+            leave-to-class="custom-leave-to">
+          <MealsListComponent v-if="meals.length > 0" :meals="meals"/>
+        </Transition>
+        <MealsLoaderComponent v-if="loading"/>
+        <NotFoundComponent v-if="meals.length === 0 && !loading"/>
+      </div>
     </div>
   </div>
 </template>

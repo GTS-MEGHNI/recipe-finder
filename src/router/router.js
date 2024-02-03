@@ -13,6 +13,8 @@ export const router = createRouter({
         path: '/meals/:id',
         name: 'details',
         component: MealDetailsView
+    }],
+    scrollBehavior(to, from,savedPosition) {
+        return savedPosition || {top: 0}
     }
-    ]
 })

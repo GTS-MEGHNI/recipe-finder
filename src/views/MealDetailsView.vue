@@ -12,11 +12,9 @@ let meal = store.getters.getMealById(parseInt(router.params.id))
 </script>
 
 <template>
-
-  <div class="text-white flex">
-    <MealsDetailsComponent :meal="meal"/>
-  </div>
-
+    <div class="text-white flex">
+      <MealsDetailsComponent :meal="meal"/>
+    </div>
 </template>
 <style scoped>
 

@@ -1,12 +1,13 @@
 <script setup>
 
 import IngredientComponent from "@/components/IngredientComponent.vue";
+import ImageComponent from "@/components/ImageComponent.vue";
+import MealCategoryBadgeComponent from "@/components/MealCategoryBadgeComponent.vue";
 
 defineProps({
   meal: null
 })
-import ImageComponent from "@/components/ImageComponent.vue";
-import MealCategoryBadgeComponent from "@/components/MealCategoryBadgeComponent.vue";
+
 </script>
 
 <template>
@@ -30,7 +31,8 @@ import MealCategoryBadgeComponent from "@/components/MealCategoryBadgeComponent.
     <div class="mt-8">
       <h2 class="text-2xl font-semibold mb-4">Cooking Instructions</h2>
       <div class="grid gap-4">
-        <div v-for="(instruction, index) in meal.instructions" :key="index" class="p-4 rounded-lg shadow-md bg-gray-800">
+        <div v-for="(instruction, index) in meal.instructions" :key="index"
+             class="p-4 rounded-lg shadow-md bg-gray-800">
           <h3 class="text-lg font-medium text-white mb-2">{{ index + 1 }}. {{ instruction }}</h3>
           <div class="border-t border-gray-600 mt-2"></div>
         </div>

@@ -9,3 +9,14 @@ body {
 .bg-gradient-to-r {
     background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
 }
+
+.custom-enter-active,
+.custom-leave-active {
+    transition: transform 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53),
+    opacity 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+.custom-enter-from,
+.custom-leave-to {
+    opacity: 0;
+    transform: translateY(6px);
+}
