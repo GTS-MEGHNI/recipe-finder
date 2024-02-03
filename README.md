@@ -22,3 +22,4 @@ This Recipe Finder App is a Vue.js project designed to demonstrate frontend deve
 - Provide/Inject
 - Modularization
 - Services
+- Transitions
