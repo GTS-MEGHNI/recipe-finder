@@ -14,7 +14,5 @@ export const router = createRouter({
         name: 'details',
         component: MealDetailsView
     }],
-    scrollBehavior(to, from,savedPosition) {
-        return savedPosition || {top: 0}
-    }
+
 })

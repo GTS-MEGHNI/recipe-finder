@@ -1,11 +1,10 @@
 <script setup>
-import MealImageComponent from "@/components/MealImageComponent.vue";
 import {useRouter} from "vue-router";
-import {onMounted} from "vue";
+import {onMounted, inject} from "vue";
 import MealCategoryBadgeComponent from "@/components/MealCategoryBadgeComponent.vue";
 import ImageComponent from "@/components/ImageComponent.vue";
 
-let props = defineProps({
+const props = defineProps({
   id: null,
   name: null,
   category: null,
@@ -14,11 +13,14 @@ let props = defineProps({
 
 let router = null
 
+const SetLeavingToDetails = inject('SetLeavingToDetails')
+
 onMounted(() => {
   router = useRouter()
 })
 
 function showDetails() {
+  SetLeavingToDetails(true)
   router.push('/meals/'+props.id)
 }
 

@@ -10,13 +10,30 @@ body {
     background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
 }
 
-.custom-enter-active,
-.custom-leave-active {
-    transition: transform 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53),
-    opacity 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+.meal-card-custom-enter-active {
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
-.custom-enter-from,
-.custom-leave-to {
+
+.meals-view-custom-leave-active {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.meal-card-custom-enter-from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(-20px);
 }
+
+.meals-view-custom-leave-to {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.meals-details-enter-active {
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.meals-details-enter-from {
+    opacity: 0;
+    transform: translateX(30px);
+}
+
