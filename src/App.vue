@@ -7,7 +7,7 @@ import {useStore} from "vuex";
 import SearchComponent from "@/components/SearchComponent.vue";
 import MealsListComponent from "@/components/MealsListComponent.vue";
 import NotFoundComponent from "@/components/NotFoundComponent.vue";
-import SpinnerComponent from "@/components/SpinnerComponent.vue";
+import MealsLoaderComponent from "@/components/MealsLoaderComponent.vue";
 
 let loading = ref(false)
 
@@ -35,7 +35,7 @@ const meals = store.getters.getMeals
     </div>
     <div>
       <MealsListComponent v-if="meals.length > 0" :meals="meals"/>
-      <SpinnerComponent v-if="loading"/>
+      <MealsLoaderComponent v-if="loading"/>
       <NotFoundComponent v-if="meals.length === 0 && !loading"/>
     </div>
   </div>

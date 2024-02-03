@@ -3,11 +3,8 @@
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center h-screen">
-    <div class="spinner">
-      <div class="spinner-circle"></div>
-    </div>
-    <h1 class="text-lg font-semibold text-white">Loading, please wait...</h1>
+  <div class="spinner">
+    <div class="spinner-circle"></div>
   </div>
 </template>
 
